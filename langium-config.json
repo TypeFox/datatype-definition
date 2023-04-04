@@ -1,0 +1,20 @@
+{
+    "projectName": "DatatypeDefinition",
+    "languages": [{
+        "id": "DatatypeDefinition",
+        "grammar": "src/language-server/DatatypeDefinition.langium",
+        "fileExtensions": [".types"],
+        "textMate": {
+            "out": "syntaxes/datatype-definition.tmLanguage.json"
+        },
+        "monarch": {
+            "out": "syntaxes/datatype-definition.monarch.ts"
+        }
+    }],
+    "out": "src/language-server/generated",
+    "chevrotainParserConfig": {
+        "recoveryEnabled": true,
+        "nodeLocationTracking": "full",
+        "maxLookahead": 3
+    }
+}

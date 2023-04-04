@@ -1,0 +1,15 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+      "rootDir": "src",
+      "outDir": "out",
+      "lib": ["ESNext", "WebWorker"]
+    },
+    "include": [
+      "src/**/*"
+    ],
+    "exclude": [
+      "out",
+      "/node_modules"
+    ]
+  }

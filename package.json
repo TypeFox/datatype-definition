@@ -1,0 +1,95 @@
+{
+    "name": "datatype-definition-dsl",
+    "displayName": "Datatype Definition DSL",
+    "version": "0.1.0",
+    "description": "A data type definition language for generating implementations in various target languages (TypeScript, Java, etc.)",
+    "homepage": "https://github.com/langium/datatype-definition",
+    "engines": {
+        "vscode": "^1.67.0"
+    },
+    "license": "MIT",
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "DatatypeDefinition",
+                "aliases": [
+                    "DatatypeDefinition",
+                    "datatype-definition"
+                ],
+                "extensions": [
+                    ".types"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "DatatypeDefinition",
+                "scopeName": "source.DatatypeDefinition",
+                "path": "./syntaxes/datatype-definition.tmLanguage.json"
+            }
+        ]
+    },
+    "activationEvents": [
+        "onLanguage:datatype-definition"
+    ],
+    "files": [
+        "bin",
+        "out",
+        "src",
+        "syntaxes",
+        "language-configuration.json"
+    ],
+    "bin": {
+        "datatypes-cli": "./bin/cli"
+    },
+    "main": "./out/extension.js",
+    "scripts": {
+        "clean": "shx rm -rf out src/**/generated *.tsbuildinfo",
+        "langium:generate": "langium generate",
+        "langium:watch": "langium generate --watch",
+        "build": "tsc",
+        "build:clean": "npm run clean && langium generate && npm run build",
+        "build:test": "tsc -p ./tsconfig.test.json",
+        "watch": "tsc -watch",
+        "test": "vitest run",
+        "lint": "eslint src test --ext ts"
+    },
+    "dependencies": {
+        "chalk": "~4.1.2",
+        "commander": "~10.0.0",
+        "langium": "~1.1.0",
+        "lodash": "~4.17.21",
+        "vscode-languageclient": "~8.0.2",
+        "vscode-languageserver": "~8.0.2"
+    },
+    "devDependencies": {
+        "typescript": "~4.9.5",
+        "langium-cli": "~1.1.0",
+        "@types/node": "~16.18.11",
+        "@types/lodash": "~4.14.192",
+        "@types/vscode": "~1.67.0",
+        "@typescript-eslint/eslint-plugin": "^5.51.0",
+        "@typescript-eslint/parser": "^5.51.0",
+        "shx": "^0.3.4",
+        "vitest": "~0.28.4",
+        "eslint": "^8.33.0",
+        "eslint-plugin-header": "^3.1.1"
+    },
+    "volta": {
+        "node": "16.19.0",
+        "npm": "8.19.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/langium/datatype-definition"
+    },
+    "bugs": "https://github.com/langium/datatype-definition/issues",
+    "author": {
+        "name": "TypeFox",
+        "url": "https://www.typefox.io"
+    }
+}
